@@ -22,13 +22,11 @@
     "build": "tsc -b",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist .tsbuildinfo",
-    "adapt:react": "npm i $(node -p \"require('./adapters.json').react\")",
-    "init": "node scripts/init.js",
-    "set-name": "node scripts/set-name.js",
-    "set-tsconfig": "node scripts/set-tsconfig.js"
+    "adapt:react": "npm i $(node -p \"require('./adapters.json').react\")"
   },
   "sideEffects": false,
   "devDependencies": {
+    "@mark1russell7/ts-base": "github:mark1russell7/ts-base#main",
     "typescript": "^5.9.3"
   },
   "dependencies": {},
