@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json.schemastore.org/package",
+  "name": "@mark1russell7/splay",
+  "version": "0.0.0",
+  "description": "Minimal recursive data renderer - framework agnostic core",
+  "license": "MIT",
+  "author": "Mark Russell <marktheprogrammer17@gmail.com>",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist .tsbuildinfo",
+    "adapt:react": "npm i $(node -p \"require('./adapters.json').react\")",
+    "init": "node scripts/init.js",
+    "set-name": "node scripts/set-name.js",
+    "set-tsconfig": "node scripts/set-tsconfig.js"
+  },
+  "sideEffects": false,
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {},
+  "peerDependencies": {},
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mark1russell7/splay.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mark1russell7/splay/issues"
+  },
+  "homepage": "https://github.com/mark1russell7/splay#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=25.0.0",
+    "npm": ">=11.0.0"
+  }
+}
