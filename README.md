@@ -4,6 +4,57 @@ Minimal recursive data renderer - framework agnostic core.
 
 **181 lines** of TypeScript that provide the complete recursive dispatch algorithm for type-driven rendering.
 
+## Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                              APPLICATION                                     │
+│                                                                              │
+│   const output = dispatch(data, size, "$", { registry });                   │
+│                                                                              │
+└───────────────────────────────────────┬─────────────────────────────────────┘
+                                        │
+                                        ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                               dispatch()                                     │
+│  ┌───────────────────────────────────────────────────────────────────────┐  │
+│  │                                                                        │  │
+│  │   1. inferType(data)         ───►  "user" | "array" | "string" | ...  │  │
+│  │                                            │                           │  │
+│  │                                            ▼                           │  │
+│  │   2. registry.get(type)      ───►  ViewerFactory | undefined          │  │
+│  │                                            │                           │  │
+│  │                                            ▼                           │  │
+│  │   3. factory(context)        ───►  Output (ReactNode, string, etc)    │  │
+│  │         │                                                              │  │
+│  │         │ ctx.render(nested, size, path)                              │  │
+│  │         └────────────────────────────► dispatch() (recursive)         │  │
+│  │                                                                        │  │
+│  └───────────────────────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                              CORE MODULES                                    │
+│                                                                              │
+│  ┌───────────────┐  ┌───────────────┐  ┌───────────────┐  ┌─────────────┐  │
+│  │    infer.ts   │  │  registry.ts  │  │  dispatch.ts  │  │  resolve.ts │  │
+│  │               │  │               │  │               │  │             │  │
+│  │ inferType()   │  │ createRegistry│  │  dispatch()   │  │ resolve()   │  │
+│  │ TYPE_SYMBOL   │  │ register()    │  │               │  │ isDynamic() │  │
+│  │               │  │ get(), has()  │  │               │  │             │  │
+│  └───────────────┘  └───────────────┘  └───────────────┘  └─────────────┘  │
+│                                                                              │
+│  ┌───────────────┐  ┌───────────────┐                                       │
+│  │   layout.ts   │  │    path.ts    │                                       │
+│  │               │  │               │                                       │
+│  │ gridLayout()  │  │ arrayPath()   │                                       │
+│  │ listLayout()  │  │ objectPath()  │                                       │
+│  │ splitLayout() │  │ pathDepth()   │                                       │
+│  └───────────────┘  └───────────────┘                                       │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
 ## Installation
 
 ```bash
