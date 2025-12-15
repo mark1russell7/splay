@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "typescript": "^5.9.3",
-    "@mark1russell7/cue": "github:mark1russell7/cue#release-1.0.0"
+    "@mark1russell7/cue": "github:mark1russell7/cue#main"
   },
   "scripts": {
     "build": "tsc -b",
