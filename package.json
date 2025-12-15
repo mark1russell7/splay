@@ -18,19 +18,7 @@
     "dist",
     "src"
   ],
-  "scripts": {
-    "build": "tsc -b",
-    "typecheck": "tsc --noEmit",
-    "clean": "rm -rf dist .tsbuildinfo",
-    "adapt:react": "npm i $(node -p \"require('./adapters.json').react\")"
-  },
   "sideEffects": false,
-  "devDependencies": {
-    "@mark1russell7/ts-base": "github:mark1russell7/ts-base#main",
-    "typescript": "^5.9.3"
-  },
-  "dependencies": {},
-  "peerDependencies": {},
   "keywords": [],
   "repository": {
     "type": "git",
@@ -46,5 +34,14 @@
   "engines": {
     "node": ">=25.0.0",
     "npm": ">=11.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "@mark1russell7/cue": "github:mark1russell7/cue#main"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist .tsbuildinfo"
   }
 }
