@@ -43,5 +43,8 @@
     "build": "tsc -b",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist .tsbuildinfo"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["@mark1russell7/cue"]
   }
 }

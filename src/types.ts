@@ -33,3 +33,23 @@ export interface RenderContext<T = unknown> {
 export interface ViewerFactory<Output = unknown> {
   (ctx: RenderContext): Output;
 }
+
+/**
+ * Serializable component output.
+ * Can be sent over the wire and hydrated to framework-specific components.
+ */
+export interface ComponentOutput {
+  /** Component type (maps to hydration component) */
+  type: string;
+  /** Component props */
+  props: Record<string, unknown>;
+  /** Child components */
+  children?: ComponentOutput[];
+  /** Optional key for lists */
+  key?: string | number;
+}
+
+/**
+ * Component factory that returns serializable output
+ */
+export type ComponentFactory<T = unknown> = (ctx: RenderContext<T>) => ComponentOutput;
