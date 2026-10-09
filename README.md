@@ -1,12 +1,33 @@
 # Splay
 
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue.svg)](https://www.typescriptlang.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node: >=25.0.0](https://img.shields.io/badge/node-%3E%3D25.0.0-brightgreen.svg)](https://nodejs.org/)
+[![npm version](https://img.shields.io/npm/v/@mark1russell7/splay.svg)](https://www.npmjs.com/package/@mark1russell7/splay)
+[![CI](https://github.com/mark1russell7/splay/actions/workflows/ci.yml/badge.svg)](https://github.com/mark1russell7/splay/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/npm/l/@mark1russell7/splay.svg)](./LICENSE)
+[![Part of client](https://img.shields.io/badge/part%20of-client-1f3fbf)](https://mark1russell7.github.io/client/)
 
 **Minimal recursive data renderer** - A framework-agnostic core for type-driven rendering.
 
 **181 lines** of TypeScript that provide the complete recursive dispatch algorithm for rendering any data structure based on its type.
+
+```bash
+npm install @mark1russell7/splay
+```
+
+```typescript
+import { createRegistry, dispatch } from "@mark1russell7/splay";
+
+const registry = createRegistry<string>();
+registry.register("string", (ctx) => `"${ctx.data}"`);
+registry.register("number", (ctx) => String(ctx.data));
+registry.register("array", (ctx) =>
+  `[${(ctx.data as unknown[]).map((item, i) => ctx.render(item, ctx.size, `${ctx.path}[${i}]`)).join(", ")}]`
+);
+
+console.log(dispatch(["hello", 42, ["nested"]], { width: 100, height: 100 }, "$", { registry }));
+// ["hello", 42, ["nested"]]
+```
+
+Splay is part of the [client monorepo](https://github.com/mark1russell7/client): [`@mark1russell7/client-splay`](https://github.com/mark1russell7/client/tree/main/packages/client-splay) renders procedure results with it (see [the client site](https://mark1russell7.github.io/client/)).
 
 ## Table of Contents
 
@@ -136,14 +157,16 @@ graph LR
 ## Installation
 
 ```bash
-npm install github:mark1russell7/splay#main
+npm install @mark1russell7/splay
 ```
 
 Or with pnpm:
 
 ```bash
-pnpm add github:mark1russell7/splay#main
+pnpm add @mark1russell7/splay
 ```
+
+Node.js 22 or later, or any modern browser (the package is ESM only).
 
 ## Core Concepts
 
@@ -803,4 +826,4 @@ MIT © Mark Russell
 
 **Repository**: [github.com/mark1russell7/splay](https://github.com/mark1russell7/splay)
 **Issues**: [github.com/mark1russell7/splay/issues](https://github.com/mark1russell7/splay/issues)
-**Author**: Mark Russell <marktheprogrammer17@gmail.com>
+**Author**: Mark Russell ([github.com/mark1russell7](https://github.com/mark1russell7))
