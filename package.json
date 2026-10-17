@@ -58,6 +58,7 @@
     "access": "public",
     "provenance": true
   },
+  "packageManager": "pnpm@10.34.7",
   "engines": {
     "node": ">=22"
   },
@@ -77,7 +78,8 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "@mark1russell7/cue"
+      "@mark1russell7/cue",
+      "@mark1russell7/cue@https://codeload.github.com/mark1russell7/cue/tar.gz/c5fc7aa096c00461fde1db42a88d6df2e7db2dca"
     ]
   }
 }
