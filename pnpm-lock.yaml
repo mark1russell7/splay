@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@mark1russell7/cue':
-        specifier: github:mark1russell7/cue#main
-        version: https://codeload.github.com/mark1russell7/cue/tar.gz/c5fc7aa096c00461fde1db42a88d6df2e7db2dca
+        specifier: ^1.0.0
+        version: 1.0.0
       '@mark1russell7/test':
         specifier: github:mark1russell7/test#main
         version: https://codeload.github.com/mark1russell7/test/tar.gz/11cc15dac38a6fc81dc497e46768c944c333a335
@@ -182,10 +182,9 @@ packages:
   '@jridgewell/sourcemap-codec@1.5.5':
     resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
 
-  '@mark1russell7/cue@https://codeload.github.com/mark1russell7/cue/tar.gz/c5fc7aa096c00461fde1db42a88d6df2e7db2dca':
-    resolution: {tarball: https://codeload.github.com/mark1russell7/cue/tar.gz/c5fc7aa096c00461fde1db42a88d6df2e7db2dca}
-    version: 1.0.0
-    engines: {node: '>=25.0.0', npm: '>=11.0.0'}
+  '@mark1russell7/cue@1.0.0':
+    resolution: {integrity: sha512-X5rWpFWeoTxXW0jcUmDUcJUnMS7lPtwF4Xhb7QSD+85LifEPH81h1lzhUri+VngQCm7f9lJwj5Z15lJ4wVcODA==}
+    engines: {node: '>=22'}
     hasBin: true
 
   '@mark1russell7/test@https://codeload.github.com/mark1russell7/test/tar.gz/11cc15dac38a6fc81dc497e46768c944c333a335':
@@ -641,7 +640,7 @@ snapshots:
 
   '@jridgewell/sourcemap-codec@1.5.5': {}
 
-  '@mark1russell7/cue@https://codeload.github.com/mark1russell7/cue/tar.gz/c5fc7aa096c00461fde1db42a88d6df2e7db2dca': {}
+  '@mark1russell7/cue@1.0.0': {}
 
   '@mark1russell7/test@https://codeload.github.com/mark1russell7/test/tar.gz/11cc15dac38a6fc81dc497e46768c944c333a335': {}
 

@@ -64,7 +64,7 @@
   },
   "devDependencies": {
     "typescript": "^5.9.3",
-    "@mark1russell7/cue": "github:mark1russell7/cue#main",
+    "@mark1russell7/cue": "^1.0.0",
     "vitest": "^3.0.0",
     "@mark1russell7/test": "github:mark1russell7/test#main"
   },
@@ -75,11 +75,5 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@mark1russell7/cue",
-      "@mark1russell7/cue@https://codeload.github.com/mark1russell7/cue/tar.gz/c5fc7aa096c00461fde1db42a88d6df2e7db2dca"
-    ]
   }
 }
