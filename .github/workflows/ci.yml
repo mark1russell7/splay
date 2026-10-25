@@ -1,4 +1,7 @@
-name: splay CI
+# The CI of splay: the shared CI of mark1russell7 (reusable-ci.yml of mark1russell7/template, its
+# CI.md). The scripts build, test and typecheck run on three systems and two Node.js versions, and
+# npm pack --dry-run shows the files of the tarball.
+name: CI
 
 on:
   push:
@@ -8,40 +11,19 @@ on:
   # release.yml starts these gates before a release
   workflow_call:
 
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  test:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        node: [22, 24]
-    runs-on: ${{ matrix.os }}
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      # The pnpm version comes from "packageManager" in package.json
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node }}
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Build package
-        run: pnpm build
-
-      - name: Run tests
-        run: pnpm test
-
-      - name: Type check
-        run: pnpm typecheck
-
-      - name: The files of the tarball
-        run: npm pack --dry-run
+  ci:
+    uses: mark1russell7/template/.github/workflows/reusable-ci.yml@94e66824bbacee6bdd8445d774dbab23dcf3208d # main
+    with:
+      scripts: build test typecheck
+      node-versions: '["22", "24"]'
+      os: '["ubuntu-latest", "windows-latest", "macos-latest"]'
+      # The files of the tarball
+      run: npm pack --dry-run
