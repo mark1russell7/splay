@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/package",
   "name": "@mark1russell7/splay",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Type-driven recursive renderer for any data: register a viewer per type and dispatch renders nested values with React, Vue, Solid, Svelte or plain strings. Framework-agnostic core, zero dependencies.",
   "license": "MIT",
   "author": "Mark Russell (https://github.com/mark1russell7)",

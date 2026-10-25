@@ -49,3 +49,30 @@ describe("pathDepth", () => {
     expect(pathDepth("data.items[0]")).toBe(2);
   });
 });
+
+describe("keys with a dot or a bracket", () => {
+  it("puts the key in quoted brackets, so that the path does not change its structure", () => {
+    expect(objectPath("$", "a.b")).toBe("$['a.b']");
+    expect(objectPath("$", "a[0]")).toBe("$['a[0]']");
+    expect(objectPath("$", "it's.x")).toBe("$['it\\'s.x']");
+    expect(objectPath("$", "back\\slash.x")).toBe("$['back\\\\slash.x']");
+    expect(objectPath("$", "end\\.x")).toBe("$['end\\\\.x']");
+    // A key without a dot or a bracket keeps the dot form
+    expect(objectPath("$", "it's")).toBe("$.it's");
+  });
+
+  it("gives a different path for a key with a dot and for a nested key", () => {
+    expect(objectPath("$", "a.b")).not.toBe(objectPath(objectPath("$", "a"), "b"));
+    expect(objectPath("$", "a[0]")).not.toBe(arrayPath(objectPath("$", "a"), 0));
+  });
+
+  it("counts a quoted key as one level of depth, as a key after a dot", () => {
+    expect(pathDepth(objectPath("$", "a.b"))).toBe(2);
+    expect(pathDepth(objectPath(objectPath("$", "example.com"), "mail.x"))).toBe(3);
+    expect(pathDepth(arrayPath(objectPath("$", "a.b"), 0))).toBe(2);
+    expect(pathDepth(objectPath("$", "it's.x"))).toBe(2);
+    expect(pathDepth(objectPath(objectPath("$", "back\\slash.x"), "c"))).toBe(3);
+    // A key that ends with a backslash: the quote after it closes the key
+    expect(pathDepth(objectPath(objectPath("$", "a.b\\"), "c.d"))).toBe(3);
+  });
+});
