@@ -395,18 +395,21 @@ arrayPath("$.users", 2);        // "$.users[2]"
 // Build object property path
 objectPath("$", "name");         // "$.name"
 objectPath("$.user", "email");   // "$.user.email"
+objectPath("$", "example.com");  // "$['example.com']" (a key with ".", "[" or "]")
 
 // Compute path depth
 pathDepth("$");                  // 1
 pathDepth("$.users");            // 2
 pathDepth("$.users[0]");         // 2 (arrays don't increase depth)
 pathDepth("$.users[0].name");    // 3
+pathDepth("$['example.com']");   // 2 (a quoted key is one level)
 ```
 
 **Path Format:**
 - Root: `"$"`
 - Object properties: `"$.prop.nested"`
 - Array elements: `"$[0]"` or `"$.arr[0]"`
+- Keys with `.`, `[` or `]`: `"$['a.b']"`. A backslash escapes `'` and `\` in the key.
 
 ## API Reference
 
