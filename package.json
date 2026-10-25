@@ -65,7 +65,7 @@
   "devDependencies": {
     "typescript": "^5.9.3",
     "@mark1russell7/cue": "^1.0.0",
-    "vitest": "^3.0.0",
+    "vitest": "^4.1.12",
     "@mark1russell7/test": "github:mark1russell7/test#main"
   },
   "scripts": {
