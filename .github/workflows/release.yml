@@ -1,26 +1,29 @@
-# The standard npm release of a repository made from mark1russell7/template (RELEASING.md, CI.md).
+# The standard npm release of a repository made from mark1russell7/template (RELEASING.md,
+# and CI.md of the template).
 #
 #   verify    The gates of ci.yml.
-#   build     reusable-release-build.yml: builds and packs each published package
-#             (scripts/release/pack.mjs), and writes the plan of the git tags and the GitHub releases
-#             (scripts/release/tags.mjs).
+#   build     reusable-release-build.yml of the template: stops when the commit is not on main,
+#             builds and packs each published package (scripts/release/pack.mjs), and writes the
+#             plan of the git tags and the GitHub releases (scripts/release/tags.mjs).
 #   publish   The npm-publish action of the template: publishes each tarball whose version npm does
 #             not have. Only this job holds "id-token: write", and it runs no code of the
 #             repository: no checkout, no install.
-#   tag       reusable-release-tag.yml: makes a git tag and a GitHub release for each version that
-#             publish published. Only this job holds "contents: write", and it also runs no code of
-#             the repository: gh creates each tag on GitHub, from the data of the plan.
+#   tag       reusable-release-tag.yml of the template: makes a git tag and a GitHub release for
+#             each version that publish published. Only this job holds "contents: write", and it
+#             also runs no code of the repository: gh creates each tag on GitHub, from the data of
+#             the plan.
 #
 # The publish job stays in this file. Only its steps are shared (the npm-publish action). npm
 # trusted publishing matches the OIDC token of the run to the trusted publisher of each package:
 # this repository and the workflow file release.yml. A shared workflow of a different repository can
-# change what npm sees (CI.md). A composite action runs in this job, so npm sees this file. The other
-# jobs need no OIDC token, so they are shared workflows of the template. Renovate does not change
-# this file: the release session moves its pins (RELEASING.md).
+# change what npm sees (CI.md of the template). A composite action runs in this job, so npm sees
+# this file. The other jobs need no OIDC token, so they are shared workflows of the template.
+# Renovate does not change this file: the release session moves its pins (RELEASING.md).
 #
 # A release: change the version in a package.json and merge it to main. The workflow also starts
 # by hand (workflow_dispatch), for example to publish again after a failure. It skips each
-# version that is already on npm.
+# version that is already on npm. A release publishes only a commit on main: the first step of the
+# build job stops a run on a commit that main does not have (RELEASING.md).
 #
 # npm trusted publishing uses the OIDC token of GitHub Actions: no npm token, and each version
 # gets a provenance statement. The trusted publisher of each package names this repository and
@@ -60,7 +63,7 @@ jobs:
   build:
     name: Build and pack
     needs: verify
-    uses: mark1russell7/template/.github/workflows/reusable-release-build.yml@94e66824bbacee6bdd8445d774dbab23dcf3208d # main
+    uses: mark1russell7/template/.github/workflows/reusable-release-build.yml@c51e91e385e2d84e1f01d269489a24b9a6910286 # main
     permissions:
       contents: read
 
@@ -79,14 +82,14 @@ jobs:
       # this repository and release.yml. It downloads the artifact "release" and publishes each
       # version that npm does not have, with provenance (.github/actions/npm-publish of the template).
       - id: publish
-        uses: mark1russell7/template/.github/actions/npm-publish@94e66824bbacee6bdd8445d774dbab23dcf3208d # main
+        uses: mark1russell7/template/.github/actions/npm-publish@c51e91e385e2d84e1f01d269489a24b9a6910286 # main
 
   tag:
     name: Git tag and GitHub release
     needs: [build, publish]
     # Also after a failed publish: each version that it published before the failure gets its tag.
     if: ${{ !cancelled() && needs.build.result == 'success' }}
-    uses: mark1russell7/template/.github/workflows/reusable-release-tag.yml@94e66824bbacee6bdd8445d774dbab23dcf3208d # main
+    uses: mark1russell7/template/.github/workflows/reusable-release-tag.yml@c51e91e385e2d84e1f01d269489a24b9a6910286 # main
     permissions:
       contents: write
     with:
