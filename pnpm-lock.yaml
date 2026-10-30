@@ -10,7 +10,7 @@ importers:
     devDependencies:
       '@mark1russell7/cue':
         specifier: ^1.0.0
-        version: 1.0.2
+        version: 1.1.0
       '@mark1russell7/test':
         specifier: github:mark1russell7/test#main
         version: https://codeload.github.com/mark1russell7/test/tar.gz/1a420a6ee70dcf40e612300ca497a22ed92d5843(vitest@4.1.12(vite@7.3.7))
@@ -182,31 +182,31 @@ packages:
   '@jridgewell/sourcemap-codec@1.5.5':
     resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
 
-  '@mark1russell7/cue@1.0.2':
-    resolution: {integrity: sha512-ketUJQeJ4eLSmw0X3NpWrGHxXVg30MpMfw/wYdzlpwf7J94BQmmOM80VuGL4OPC4tXczmTj5LWxNdM7NoQKgeA==}
+  '@mark1russell7/cue@1.1.0':
+    resolution: {integrity: sha512-R9pjuWNFqd/LSfOI8uY7w8E2Dri8UQFGLodBuV4d2E0pwzWM5ISVXWVhC7+aYgrR1GXSMzbyo5ZLWvqyQCwdIg==}
     engines: {node: '>=22'}
     hasBin: true
 
   '@mark1russell7/mock-client@https://codeload.github.com/mark1russell7/mock-client/tar.gz/b92151262a6eab81908f40e0c8443702fdf689b0':
-    resolution: {gitHosted: true, integrity: sha512-oWCzAjCv6LnPIf7bPZUHNzRIFE2l5pqUZ0LNRWIi1fBG1t4R44r8wL0HtBsWk1rNN6eef8SkedngC3rSYv7gdw==, tarball: https://codeload.github.com/mark1russell7/mock-client/tar.gz/b92151262a6eab81908f40e0c8443702fdf689b0}
+    resolution: {gitHosted: true, tarball: https://codeload.github.com/mark1russell7/mock-client/tar.gz/b92151262a6eab81908f40e0c8443702fdf689b0}
     version: 0.0.0
     peerDependencies:
       vitest: ^3.0.0
 
   '@mark1russell7/mock-fs@https://codeload.github.com/mark1russell7/mock-fs/tar.gz/95199d0f05b3d1cb59b3aa7a4e4022d7a55dbfb4':
-    resolution: {gitHosted: true, integrity: sha512-TUR7APIo0uproDg7bQGrIMc+srptgspYpSkzLpjgjUXFHdZPEwjszzvl+Y6fxkJ3h9cbDlXPIoQBFVRz2GyD2A==, tarball: https://codeload.github.com/mark1russell7/mock-fs/tar.gz/95199d0f05b3d1cb59b3aa7a4e4022d7a55dbfb4}
+    resolution: {gitHosted: true, tarball: https://codeload.github.com/mark1russell7/mock-fs/tar.gz/95199d0f05b3d1cb59b3aa7a4e4022d7a55dbfb4}
     version: 0.0.0
     peerDependencies:
       vitest: ^3.0.0
 
   '@mark1russell7/mock-logger@https://codeload.github.com/mark1russell7/mock-logger/tar.gz/8566bfb6d563d4c1599d96a4f1ab40f3cbabfa8a':
-    resolution: {gitHosted: true, integrity: sha512-Gf8clVNru0+jjmy69j19UwB+8odEY1oMT5BLi+5UouXuePoeyHrSucJVD58sHWgacq/b5QopSSabfoT82ganKw==, tarball: https://codeload.github.com/mark1russell7/mock-logger/tar.gz/8566bfb6d563d4c1599d96a4f1ab40f3cbabfa8a}
+    resolution: {gitHosted: true, tarball: https://codeload.github.com/mark1russell7/mock-logger/tar.gz/8566bfb6d563d4c1599d96a4f1ab40f3cbabfa8a}
     version: 0.0.0
     peerDependencies:
       vitest: ^3.0.0
 
   '@mark1russell7/test@https://codeload.github.com/mark1russell7/test/tar.gz/1a420a6ee70dcf40e612300ca497a22ed92d5843':
-    resolution: {gitHosted: true, integrity: sha512-bCWH3dMIuqz4Jt9SPCmXrhztCONwmqnbMwppQ8E+SEPE6VMdQLnZKOVhrt3byJEjjBjPkJCLc5uIZ0d21rR8qg==, tarball: https://codeload.github.com/mark1russell7/test/tar.gz/1a420a6ee70dcf40e612300ca497a22ed92d5843}
+    resolution: {gitHosted: true, tarball: https://codeload.github.com/mark1russell7/test/tar.gz/1a420a6ee70dcf40e612300ca497a22ed92d5843}
     version: 0.0.0
 
   '@napi-rs/lzma-linux-x64-gnu@1.5.1':
@@ -674,7 +674,7 @@ snapshots:
 
   '@jridgewell/sourcemap-codec@1.5.5': {}
 
-  '@mark1russell7/cue@1.0.2': {}
+  '@mark1russell7/cue@1.1.0': {}
 
   '@mark1russell7/mock-client@https://codeload.github.com/mark1russell7/mock-client/tar.gz/b92151262a6eab81908f40e0c8443702fdf689b0(vitest@4.1.12(vite@7.3.7))':
     dependencies:
