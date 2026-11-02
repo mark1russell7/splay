@@ -20,7 +20,7 @@ concurrency:
 
 jobs:
   ci:
-    uses: mark1russell7/template/.github/workflows/reusable-ci.yml@3377b376fb6e39e4d65f130a98e74125d592f1f3 # main
+    uses: mark1russell7/template/.github/workflows/reusable-ci.yml@23f042c941fb01d75ab563aa0209229b9df4768a # main
     with:
       scripts: build test typecheck
       node-versions: '["22", "24"]'
