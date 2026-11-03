@@ -1,6 +1,6 @@
 // The first viewer set: HTML elements. Each viewer gives an element that carries its type, its path and its width.
 import { arrayPath, createRegistry, listLayout, objectPath, splitLayout, type DataType, type RenderContext, type Registry, type Size } from "@mark1russell7/splay";
-import { h } from "./chrome.ts";
+import { h } from "@mark1russell7/site-pages/chrome";
 
 /** Below this width, an object puts each key above its value. */
 export const STACK_WIDTH = 320;

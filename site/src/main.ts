@@ -2,14 +2,14 @@
 import "@mark1russell7/site-pages/scroll-cue.css";
 import { dispatch } from "@mark1russell7/splay";
 import { API, result } from "./api.ts";
-import { byId, copyText, h, setupTheme } from "./chrome.ts";
+import { byId, copyText, h, setupTheme } from "@mark1russell7/site-pages/chrome";
 import { LayoutPanel } from "./layout-panel.ts";
 import { Playground } from "./playground.ts";
 import "./style.css";
 import { textRegistry } from "./text-viewers.ts";
 import viewerSource from "./text-viewers.ts?raw";
 
-setupTheme(byId<HTMLButtonElement>("theme"));
+setupTheme(byId<HTMLButtonElement>("theme"), "splay-theme");
 new Playground();
 new LayoutPanel();
 

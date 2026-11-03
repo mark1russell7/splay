@@ -1,5 +1,5 @@
 // The layout panel: the visitor picks a helper and drags the size of the container, and the stage draws the boxes.
-import { byId, h } from "./chrome.ts";
+import { byId, h } from "@mark1russell7/site-pages/chrome";
 import { layout, type LayoutKind, type LayoutSettings } from "./layout.ts";
 
 const KINDS: readonly { readonly id: LayoutKind; readonly label: string }[] = [
