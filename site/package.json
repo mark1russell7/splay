@@ -17,7 +17,7 @@
     "@mark1russell7/splay": "workspace:*"
   },
   "devDependencies": {
-    "@mark1russell7/cue": "^1.1.0",
+    "@mark1russell7/cue": "^2.0.0",
     "@types/node": "^26.6.6",
     "typescript": "^5.9.3",
     "vite": "^8.3.5",
