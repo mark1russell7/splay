@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>splay: render any data with one viewer per type, live</title>
+    <meta name="description" content="Edit JSON and see dispatch of splay render it live with three viewer sets: HTML elements, plain strings and component data. Turn viewers off, and drag the layout helpers." />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231b1a17'/%3E%3Cpath d='M8 16 L23 7 M8 16 L24 16 M8 16 L23 25' stroke='%23f2a541' stroke-width='2.5' stroke-linecap='round'/%3E%3Ccircle cx='8' cy='16' r='3.5' fill='%23f2a541'/%3E%3Ccircle cx='23' cy='7' r='2.5' fill='%2368c3a3'/%3E%3Ccircle cx='24' cy='16' r='2.5' fill='%238fb3ff'/%3E%3Ccircle cx='23' cy='25' r='2.5' fill='%23e98bb6'/%3E%3C/svg%3E" />
+    <script>
+      // The saved theme applies before the first paint, so a dark page does not flash white.
+      try {
+        const t = localStorage.getItem("splay-theme");
+        if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#playground">Skip to the playground</a>
+    <header class="top">
+      <div class="brand">
+        <h1 class="wordmark">
+          <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M6 16 L25 6 M6 16 L26 16 M6 16 L25 26" />
+            <circle class="m0" cx="6" cy="16" r="4" />
+            <circle class="m1" cx="25" cy="6" r="3" />
+            <circle class="m2" cx="26" cy="16" r="3" />
+            <circle class="m3" cx="25" cy="26" r="3" />
+          </svg>
+          splay
+        </h1>
+        <p class="lead">
+          Render any data. Register one viewer for each type. <code>dispatch</code> finds the type of each value, calls its viewer, and the viewer calls <code>ctx.render</code> for the values
+          inside. The output is yours: elements, strings or component data.
+        </p>
+      </div>
+      <nav class="links" aria-label="Site">
+        <a href="#playground">Playground</a>
+        <a href="#layout">Layout</a>
+        <a href="#how">How it works</a>
+        <a href="#api">API</a>
+        <a href="releases/">Releases</a>
+        <a href="status/">Status</a>
+        <a href="https://github.com/mark1russell7/splay">GitHub</a>
+        <button type="button" class="theme" id="theme" aria-label="Color theme">Theme: auto</button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="playground" class="core" aria-labelledby="playground-title">
+        <h2 id="playground-title" class="sr">Playground</h2>
+
+        <div class="card editor-card">
+          <div class="card-head">
+            <span class="step">1</span>
+            <span class="label" id="presets-label">Data</span>
+            <div class="chips" id="presets" role="group" aria-labelledby="presets-label"></div>
+          </div>
+          <label class="sr" for="json">The JSON data</label>
+          <textarea id="json" class="mono" spellcheck="false" autocomplete="off" autocapitalize="off" aria-describedby="json-status json-hint"></textarea>
+          <p class="status" id="json-status" role="status" aria-live="polite" data-state="ok"></p>
+          <p class="hint" id="json-hint">JSON has no dates and no symbols. The page reads <code>{"$date": "2026-11-03"}</code> as a <code>Date</code>, and a key <code>"$type"</code> as the <code>TYPE_SYMBOL</code> of its object.</p>
+        </div>
+
+        <div class="card output-card">
+          <div class="card-head">
+            <span class="step">2</span>
+            <span class="label" id="renderers-label">Viewer set</span>
+            <div class="seg" id="renderers" role="radiogroup" aria-labelledby="renderers-label"></div>
+          </div>
+          <div class="viewers-row">
+            <span class="label" id="viewers-label">Viewers in the registry <span class="hint">Select one to turn it off. The number is the count of values of that type.</span></span>
+            <div class="toggles" id="viewers" role="group" aria-labelledby="viewers-label"></div>
+          </div>
+          <div class="inspect" id="inspect" aria-live="polite" data-state="idle"></div>
+          <div class="output" id="output" aria-label="The output of dispatch"></div>
+          <div class="output-foot">
+            <p class="stats" id="stats" role="status"></p>
+            <label class="tags-toggle"><input type="checkbox" id="tags" /> Show the type of each value</label>
+          </div>
+        </div>
+      </section>
+
+      <section id="layout" class="section" aria-labelledby="layout-title">
+        <div class="section-head">
+          <h2 id="layout-title">The layout helpers, live</h2>
+          <p class="hint">A viewer gets a size, and gives sizes to its children. Three helpers calculate the boxes. Drag the corner of the container, or move the sliders.</p>
+        </div>
+        <div class="card layout-card">
+          <div class="lay-controls">
+            <div class="seg" id="lay-kind" role="radiogroup" aria-label="Layout helper"></div>
+            <div class="ranges">
+              <label class="range"><span>Width</span><input type="range" id="lay-w" min="120" max="480" step="1" value="480" /><output>480</output></label>
+              <label class="range"><span>Height</span><input type="range" id="lay-h" min="80" max="360" step="1" value="200" /><output>200</output></label>
+              <label class="range"><span>Items</span><input type="range" id="lay-n" min="1" max="24" step="1" value="10" /><output>10</output></label>
+              <label class="range"><span>Columns</span><input type="range" id="lay-cols" min="1" max="8" step="1" value="4" /><output>4</output></label>
+              <label class="range"><span id="lay-row-label">Row height</span><input type="range" id="lay-row" min="16" max="120" step="1" value="48" /><output>48</output></label>
+              <label class="range"><span>Ratio</span><input type="range" id="lay-ratio" min="0.1" max="0.9" step="0.05" value="0.3" /><output>0.30</output></label>
+            </div>
+          </div>
+          <div class="lay-view">
+            <pre class="code scroll-cue"><code id="lay-code"></code></pre>
+            <div class="stage-wrap" id="lay-wrap">
+              <div class="boxes" id="lay-boxes"></div>
+              <div class="stage" id="lay-stage">
+                <button type="button" class="grip" id="lay-grip" aria-label="Resize the container. Drag, or use the arrow keys."></button>
+              </div>
+            </div>
+            <p class="hint" id="lay-note" aria-live="polite"></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="how" class="section" aria-labelledby="how-title">
+        <div class="section-head">
+          <h2 id="how-title">How dispatch works</h2>
+          <p class="hint">The core is about 200 lines of TypeScript with no dependencies. Each call of <code>dispatch</code> does these four steps.</p>
+        </div>
+        <ol class="how">
+          <li class="card">
+            <span class="step">1</span>
+            <h3>Find the type</h3>
+            <p><code>inferType(data)</code> gives <code>"null"</code>, <code>"undefined"</code>, <code>"function"</code> or the <code>typeof</code> of a primitive. For an object, the value of its <code>TYPE_SYMBOL</code> comes first, then <code>"array"</code>, <code>"date"</code> and <code>"object"</code>.</p>
+          </li>
+          <li class="card">
+            <span class="step">2</span>
+            <h3>Find the viewer</h3>
+            <p><code>registry.get(type)</code> gives the viewer of that type. A registry is a map from a type to a viewer.</p>
+          </li>
+          <li class="card">
+            <span class="step">3</span>
+            <h3>No viewer? Use the fallback</h3>
+            <p>With no viewer, <code>dispatch</code> gives <code>fallback(type, data)</code>, or <code>undefined</code> when the config has no fallback. Turn off a viewer above to see it.</p>
+          </li>
+          <li class="card">
+            <span class="step">4</span>
+            <h3>Call the viewer</h3>
+            <p>The viewer gets <code>ctx</code>: <code>data</code>, <code>size</code>, <code>path</code>, <code>depth</code> and <code>render</code>. <code>ctx.render(child, size, path)</code> starts step 1 again for each nested value.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section id="api" class="section" aria-labelledby="api-title">
+        <div class="section-head">
+          <h2 id="api-title">API</h2>
+          <p class="hint">The page runs each example with the package, and shows the result. <code>size</code> and <code>box</code> are <code>{ width: 300, height: 100 }</code>.</p>
+        </div>
+        <div class="api" id="api-rows"></div>
+      </section>
+
+      <section id="install" class="section" aria-labelledby="install-title">
+        <div class="section-head">
+          <h2 id="install-title">Install</h2>
+        </div>
+        <div class="package card">
+          <code class="pkg-name">@mark1russell7/splay</code>
+          <span class="pill">v<span class="version"></span></span>
+          <span class="pill">0 dependencies</span>
+          <span class="pill">MIT</span>
+          <span class="pkg-links">
+            <a href="https://www.npmjs.com/package/@mark1russell7/splay">npm</a>
+            <a href="https://github.com/mark1russell7/splay">GitHub</a>
+            <a href="releases/">Releases</a>
+          </span>
+        </div>
+        <div class="install-grid">
+          <div class="card">
+            <h3>Add the package</h3>
+            <div class="codeblock">
+              <pre class="code scroll-cue"><code id="install-cmd">pnpm add @mark1russell7/splay</code></pre>
+              <button type="button" class="copy" data-copy="install-cmd">Copy</button>
+            </div>
+            <h3>Use it</h3>
+            <div class="codeblock">
+              <pre class="code scroll-cue"><code id="sample"></code></pre>
+              <button type="button" class="copy" data-copy="sample">Copy</button>
+            </div>
+            <p class="hint">Splay is part of <a href="https://mark1russell7.github.io/client/">client</a>: its procedure results render with splay.</p>
+          </div>
+          <div class="card">
+            <h3><code>text-viewers.ts</code>: the plain string viewers of this page</h3>
+            <div class="codeblock">
+              <pre class="code scroll-cue tall"><code id="viewers-source"></code></pre>
+              <button type="button" class="copy" data-copy="viewers-source">Copy</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <p>MIT license. <a href="https://github.com/mark1russell7/splay">github.com/mark1russell7/splay</a> · <span id="build"></span></p>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

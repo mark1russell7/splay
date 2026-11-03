@@ -5,6 +5,8 @@
 [![License: MIT](https://img.shields.io/npm/l/@mark1russell7/splay.svg)](./LICENSE)
 [![Part of client](https://img.shields.io/badge/part%20of-client-1f3fbf)](https://mark1russell7.github.io/client/)
 
+**Live site: [mark1russell7.github.io/splay](https://mark1russell7.github.io/splay/).** Edit JSON, and see `dispatch` render it with three viewer sets.
+
 **Minimal recursive data renderer** - A framework-agnostic core for type-driven rendering.
 
 **181 lines** of TypeScript that provide the complete recursive dispatch algorithm for rendering any data structure based on its type.
