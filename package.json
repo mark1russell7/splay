@@ -70,9 +70,9 @@
   },
   "scripts": {
     "build": "tsc -b",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit && pnpm --filter @splay/site run typecheck",
     "clean": "rm -rf dist .tsbuildinfo",
-    "test": "vitest run",
+    "test": "vitest run && pnpm --filter @splay/site run test",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage"
   }

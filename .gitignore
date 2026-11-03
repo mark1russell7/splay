@@ -12,3 +12,6 @@ cue.mod/pkg/
 
 # npm pack output
 *.tgz
+
+# The built site
+site/dist/
