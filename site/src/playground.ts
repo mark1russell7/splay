@@ -1,6 +1,6 @@
 // The playground: the JSON editor, the viewer toggles, the renderer picker and the live output of dispatch.
 import { dispatch, type ComponentOutput, type DataType, type Registry, type Size } from "@mark1russell7/splay";
-import { byId, h } from "./chrome.ts";
+import { byId, h } from "@mark1russell7/site-pages/chrome";
 import { componentRegistry } from "./component-viewers.ts";
 import { PRESETS, read } from "./data.ts";
 import { domFallback, domRegistry, mark } from "./dom-viewers.ts";
