@@ -17,6 +17,7 @@ const USES: Readonly<Record<LayoutKind, readonly string[]>> = {
 
 const MIN_WIDTH = 120;
 const MIN_HEIGHT = 80;
+const DEFAULT_WIDTH = 480;
 
 export class LayoutPanel {
   private kind: LayoutKind = "grid";
@@ -24,12 +25,17 @@ export class LayoutPanel {
   private readonly stage = byId("lay-stage");
   private readonly boxes = byId("lay-boxes");
   private readonly inputs = new Map<string, HTMLInputElement>();
+  // This value is true after the visitor changes the width or the height.
+  private touched = false;
 
   constructor() {
     for (const id of ["w", "h", "n", "cols", "row", "ratio"]) {
       const input = byId<HTMLInputElement>(`lay-${id}`);
       this.inputs.set(id, input);
-      input.addEventListener("input", () => this.render());
+      input.addEventListener("input", () => {
+        if (id === "w" || id === "h") this.touched = true;
+        this.render();
+      });
     }
     byId("lay-kind").replaceChildren(
       ...KINDS.map((k) => {
@@ -51,16 +57,16 @@ export class LayoutPanel {
     return this.inputs.get(id)!;
   }
 
-  /** This method keeps the width of the container in the width of the screen. */
+  /**
+   * This method keeps the width of the container in the width of the panel. Until the visitor sets a width, the width
+   * is the default width, or the width of the panel when it is smaller.
+   */
   private fit(): void {
     const max = Math.max(MIN_WIDTH, Math.floor(this.wrap.clientWidth));
     const w = this.input("w");
     if (Number(w.max) !== max) {
-      const first = w.dataset["fitted"] !== "true";
       w.max = String(max);
-      if (first) w.value = String(Math.min(480, max));
-      else if (Number(w.value) > max) w.value = String(max);
-      w.dataset["fitted"] = "true";
+      w.value = String(this.touched ? Math.min(Number(w.value), max) : Math.min(DEFAULT_WIDTH, max));
     }
     this.render();
   }
@@ -70,6 +76,7 @@ export class LayoutPanel {
     let start: { x: number; y: number; w: number; h: number } | null = null;
     grip.addEventListener("pointerdown", (event) => {
       grip.setPointerCapture(event.pointerId);
+      this.touched = true;
       start = { x: event.clientX, y: event.clientY, w: Number(this.input("w").value), h: Number(this.input("h").value) };
       event.preventDefault();
     });
@@ -92,6 +99,7 @@ export class LayoutPanel {
       const moves: Record<string, [string, number]> = { ArrowRight: ["w", step], ArrowLeft: ["w", -step], ArrowDown: ["h", step], ArrowUp: ["h", -step] };
       const move = moves[event.key];
       if (!move) return;
+      this.touched = true;
       const input = this.input(move[0]);
       input.value = String(Number(input.value) + move[1]);
       event.preventDefault();

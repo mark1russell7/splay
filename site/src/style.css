@@ -603,6 +603,10 @@ main {
   cursor: default;
 }
 
+.t-string.node {
+  gap: 0;
+}
+
 .t-string.node::before,
 .t-string.node::after {
   content: '"';
@@ -730,6 +734,7 @@ main {
   letter-spacing: 0.04em;
   opacity: 1;
   padding: 0 0.3rem;
+  margin-right: 0.35rem;
   border-radius: 4px;
   background: color-mix(in srgb, var(--t) 16%, transparent);
 }
@@ -1062,18 +1067,24 @@ main {
   margin-top: 1rem;
 }
 
+/* A code block: the copy button sits above the code, so it never hides a line. The code wraps on a narrow screen. */
 .codeblock {
-  position: relative;
+  display: grid;
+  gap: 4px;
 }
 
-.codeblock .code {
-  padding-right: 4.5rem;
+.codeblock .copy {
+  order: -1;
+  justify-self: end;
+}
+
+.codeblock .code,
+.lay-view .code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 
 .copy {
-  position: absolute;
-  top: 6px;
-  right: 6px;
   min-height: 1.8rem;
   padding: 0.1rem 0.55rem;
   font-size: 0.78rem;
