@@ -10,7 +10,7 @@ importers:
     devDependencies:
       '@mark1russell7/cue':
         specifier: ^2.0.0
-        version: 2.1.0
+        version: 2.1.1
       '@mark1russell7/test':
         specifier: github:mark1russell7/test#main
         version: https://codeload.github.com/mark1russell7/test/tar.gz/1a420a6ee70dcf40e612300ca497a22ed92d5843(vitest@4.1.12(@types/node@26.6.6)(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.2)))
@@ -32,7 +32,7 @@ importers:
     devDependencies:
       '@mark1russell7/cue':
         specifier: ^2.0.0
-        version: 2.1.0
+        version: 2.1.1
       '@types/node':
         specifier: ^26.6.6
         version: 26.6.6
@@ -217,8 +217,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@mark1russell7/cue@2.1.0':
-    resolution: {integrity: sha512-uFKZNUPqKDQkpE+4mha4rKiRBQe52HRtUCXJEpr1GZHo7JzrzoEGZUHNkURkVsA98dMWoUz2jMpWO98/Ty2fzg==}
+  '@mark1russell7/cue@2.1.1':
+    resolution: {integrity: sha512-0/L9nQwGqUTCLTnUPtYKJ/cvXTr/gJWFWASUzGUjKyj3LxNpYgAplLuTPNQe0g4kjcM+9JAb/D/IfYwBGvM/mA==}
     engines: {node: '>=22'}
     hasBin: true
 
@@ -839,7 +839,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@mark1russell7/cue@2.1.0': {}
+  '@mark1russell7/cue@2.1.1': {}
 
   '@mark1russell7/mock-client@https://codeload.github.com/mark1russell7/mock-client/tar.gz/b92151262a6eab81908f40e0c8443702fdf689b0(vitest@4.1.12(@types/node@26.6.6)(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.2)))':
     dependencies:
