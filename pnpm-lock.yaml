@@ -24,8 +24,8 @@ importers:
   site:
     dependencies:
       '@mark1russell7/site-pages':
-        specifier: ^0.1.10
-        version: 0.1.10
+        specifier: ^0.2.0
+        version: 0.2.0
       '@mark1russell7/splay':
         specifier: workspace:*
         version: link:..
@@ -240,8 +240,8 @@ packages:
     peerDependencies:
       vitest: ^3.0.0
 
-  '@mark1russell7/site-pages@0.1.10':
-    resolution: {integrity: sha512-dcMPqlWsxJ+fRvl5cZH01a+/94ujk5ogRfg5puO2JC7pvE5jq1IV48UrcbtP+zcS5r9zMUbvUVz74E9xQYY8FQ==}
+  '@mark1russell7/site-pages@0.2.0':
+    resolution: {integrity: sha512-dahr/WG5PFj/zrcTk/NvufB6N3Tswc60vvGregftq9nraEgeHhaEr+s0zr/gbcOrK7Cz2EHiyO5F2inHc2utYw==}
     engines: {node: '>=22'}
     hasBin: true
 
@@ -853,7 +853,7 @@ snapshots:
     dependencies:
       vitest: 4.1.12(@types/node@26.6.6)(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.2))
 
-  '@mark1russell7/site-pages@0.1.10': {}
+  '@mark1russell7/site-pages@0.2.0': {}
 
   '@mark1russell7/test@https://codeload.github.com/mark1russell7/test/tar.gz/1a420a6ee70dcf40e612300ca497a22ed92d5843(vitest@4.1.12(@types/node@26.6.6)(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.2)))':
     dependencies:
