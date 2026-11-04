@@ -25,7 +25,7 @@ importers:
     dependencies:
       '@mark1russell7/site-pages':
         specifier: ^0.2.0
-        version: 0.2.0
+        version: 0.2.1
       '@mark1russell7/splay':
         specifier: workspace:*
         version: link:..
@@ -240,8 +240,16 @@ packages:
     peerDependencies:
       vitest: ^3.0.0
 
-  '@mark1russell7/site-pages@0.2.0':
-    resolution: {integrity: sha512-dahr/WG5PFj/zrcTk/NvufB6N3Tswc60vvGregftq9nraEgeHhaEr+s0zr/gbcOrK7Cz2EHiyO5F2inHc2utYw==}
+  '@mark1russell7/rigor-generators@0.1.5':
+    resolution: {integrity: sha512-YkABrG6+AV4oZKWoSIayDGxKTqcTMbp/eGa+3u00X09Jv9TfpHFDeqHlEQARMBzJ/kvy/EMNIXQZMGa3Nobuzw==}
+    engines: {node: '>=22'}
+
+  '@mark1russell7/rigor-statistics@0.1.9':
+    resolution: {integrity: sha512-J/hfIHyiVlguOZVfA6/B7L3ReAQAW1xUbT50e4KVxMCOHJfTVC1HIj0u+Qd+Vrn+J1JoDhAF/DJ7Elfpe12gjw==}
+    engines: {node: '>=22'}
+
+  '@mark1russell7/site-pages@0.2.1':
+    resolution: {integrity: sha512-7ayIH1dwCZ+WvaEXa/56xyzv2wjIs/DkztSbnmuD3lVl2bh/1QvNCC7bYFq1oFaTheChx8DwIBzebg0x7KlBBA==}
     engines: {node: '>=22'}
     hasBin: true
 
@@ -853,7 +861,15 @@ snapshots:
     dependencies:
       vitest: 4.1.12(@types/node@26.6.6)(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.2))
 
-  '@mark1russell7/site-pages@0.2.0': {}
+  '@mark1russell7/rigor-generators@0.1.5': {}
+
+  '@mark1russell7/rigor-statistics@0.1.9':
+    dependencies:
+      '@mark1russell7/rigor-generators': 0.1.5
+
+  '@mark1russell7/site-pages@0.2.1':
+    dependencies:
+      '@mark1russell7/rigor-statistics': 0.1.9
 
   '@mark1russell7/test@https://codeload.github.com/mark1russell7/test/tar.gz/1a420a6ee70dcf40e612300ca497a22ed92d5843(vitest@4.1.12(@types/node@26.6.6)(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.2)))':
     dependencies:
