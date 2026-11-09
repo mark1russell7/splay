@@ -1,5 +1,12 @@
 # Change history
 
+## 0.2.1
+
+### Changes
+
+- The package no longer ships `dist/.tsbuildinfo`, the build cache of TypeScript. No user reads it, and it changed on each build.
+- The README links to the project site, where you edit JSON and see `dispatch` render it.
+
 ## 0.2.0
 
 ### Changes
