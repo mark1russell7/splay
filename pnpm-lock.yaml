@@ -10,10 +10,10 @@ importers:
     devDependencies:
       '@mark1russell7/cue':
         specifier: ^2.0.0
-        version: 2.1.1
+        version: 2.1.2
       '@mark1russell7/test':
         specifier: github:mark1russell7/test#main
-        version: git+https://github.com/mark1russell7/test.git#1a420a6ee70dcf40e612300ca497a22ed92d5843(vitest@4.1.12)
+        version: https://codeload.github.com/mark1russell7/test/tar.gz/1a420a6ee70dcf40e612300ca497a22ed92d5843(vitest@4.1.12)
       '@vitest/coverage-v8':
         specifier: ^4.1.12
         version: 4.1.12(vitest@4.1.12)
@@ -28,14 +28,14 @@ importers:
     dependencies:
       '@mark1russell7/site-pages':
         specifier: ^0.4.1
-        version: 0.4.1
+        version: 0.4.4
       '@mark1russell7/splay':
         specifier: workspace:*
         version: link:..
     devDependencies:
       '@mark1russell7/cue':
         specifier: ^2.0.0
-        version: 2.1.1
+        version: 2.1.2
       '@types/node':
         specifier: ^26.6.6
         version: 26.6.6
@@ -241,25 +241,25 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@mark1russell7/cue@2.1.1':
-    resolution: {integrity: sha512-0/L9nQwGqUTCLTnUPtYKJ/cvXTr/gJWFWASUzGUjKyj3LxNpYgAplLuTPNQe0g4kjcM+9JAb/D/IfYwBGvM/mA==}
+  '@mark1russell7/cue@2.1.2':
+    resolution: {integrity: sha512-PjEWeyq353cz3gZyNmYkv/rUChybd3h9BWRW3UWP+fs0s7/CwGeVRzCpYLnvLR4gyHC367G/PS3kqWJO9GEAkg==}
     engines: {node: '>=22'}
     hasBin: true
 
-  '@mark1russell7/mock-client@git+https://github.com/mark1russell7/mock-client.git#b92151262a6eab81908f40e0c8443702fdf689b0':
-    resolution: {commit: b92151262a6eab81908f40e0c8443702fdf689b0, repo: https://github.com/mark1russell7/mock-client.git, type: git}
+  '@mark1russell7/mock-client@https://codeload.github.com/mark1russell7/mock-client/tar.gz/b92151262a6eab81908f40e0c8443702fdf689b0':
+    resolution: {gitHosted: true, tarball: https://codeload.github.com/mark1russell7/mock-client/tar.gz/b92151262a6eab81908f40e0c8443702fdf689b0}
     version: 0.0.0
     peerDependencies:
       vitest: ^3.0.0
 
-  '@mark1russell7/mock-fs@git+https://github.com/mark1russell7/mock-fs.git#95199d0f05b3d1cb59b3aa7a4e4022d7a55dbfb4':
-    resolution: {commit: 95199d0f05b3d1cb59b3aa7a4e4022d7a55dbfb4, repo: https://github.com/mark1russell7/mock-fs.git, type: git}
+  '@mark1russell7/mock-fs@https://codeload.github.com/mark1russell7/mock-fs/tar.gz/95199d0f05b3d1cb59b3aa7a4e4022d7a55dbfb4':
+    resolution: {gitHosted: true, tarball: https://codeload.github.com/mark1russell7/mock-fs/tar.gz/95199d0f05b3d1cb59b3aa7a4e4022d7a55dbfb4}
     version: 0.0.0
     peerDependencies:
       vitest: ^3.0.0
 
   '@mark1russell7/mock-logger@https://codeload.github.com/mark1russell7/mock-logger/tar.gz/8566bfb6d563d4c1599d96a4f1ab40f3cbabfa8a':
-    resolution: {gitHosted: true, integrity: sha512-Gf8clVNru0+jjmy69j19UwB+8odEY1oMT5BLi+5UouXuePoeyHrSucJVD58sHWgacq/b5QopSSabfoT82ganKw==, tarball: https://codeload.github.com/mark1russell7/mock-logger/tar.gz/8566bfb6d563d4c1599d96a4f1ab40f3cbabfa8a}
+    resolution: {gitHosted: true, tarball: https://codeload.github.com/mark1russell7/mock-logger/tar.gz/8566bfb6d563d4c1599d96a4f1ab40f3cbabfa8a}
     version: 0.0.0
     peerDependencies:
       vitest: ^3.0.0
@@ -272,13 +272,13 @@ packages:
     resolution: {integrity: sha512-J/hfIHyiVlguOZVfA6/B7L3ReAQAW1xUbT50e4KVxMCOHJfTVC1HIj0u+Qd+Vrn+J1JoDhAF/DJ7Elfpe12gjw==}
     engines: {node: '>=22'}
 
-  '@mark1russell7/site-pages@0.4.1':
-    resolution: {integrity: sha512-YYPPHH3ee6No2VL+yl+mholtu7m1qdZWTf5ldYLxxZyyrsE55rPFHwIPZOnkxH6OJ7GtzqUn37/cfOg7UJqP9A==}
+  '@mark1russell7/site-pages@0.4.4':
+    resolution: {integrity: sha512-d6R1dLYAN7CA+Bnww3gZju5sO/2B3s+EuE+UupO5Fx6iKCo4w+oAenNX13yeBy/jLdxxD++m/zrcx+MxcbZ1ig==}
     engines: {node: '>=22'}
     hasBin: true
 
-  '@mark1russell7/test@git+https://github.com/mark1russell7/test.git#1a420a6ee70dcf40e612300ca497a22ed92d5843':
-    resolution: {commit: 1a420a6ee70dcf40e612300ca497a22ed92d5843, repo: https://github.com/mark1russell7/test.git, type: git}
+  '@mark1russell7/test@https://codeload.github.com/mark1russell7/test/tar.gz/1a420a6ee70dcf40e612300ca497a22ed92d5843':
+    resolution: {gitHosted: true, tarball: https://codeload.github.com/mark1russell7/test/tar.gz/1a420a6ee70dcf40e612300ca497a22ed92d5843}
     version: 0.0.0
 
   '@oxc-project/types@0.156.0':
@@ -936,13 +936,13 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.6.0
 
-  '@mark1russell7/cue@2.1.1': {}
+  '@mark1russell7/cue@2.1.2': {}
 
-  '@mark1russell7/mock-client@git+https://github.com/mark1russell7/mock-client.git#b92151262a6eab81908f40e0c8443702fdf689b0(vitest@4.1.12)':
+  '@mark1russell7/mock-client@https://codeload.github.com/mark1russell7/mock-client/tar.gz/b92151262a6eab81908f40e0c8443702fdf689b0(vitest@4.1.12)':
     dependencies:
       vitest: 4.1.12(@types/node@26.6.6)(@vitest/coverage-v8@4.1.12)(vite@8.3.6(@types/node@26.6.6)(esbuild@0.28.2))
 
-  '@mark1russell7/mock-fs@git+https://github.com/mark1russell7/mock-fs.git#95199d0f05b3d1cb59b3aa7a4e4022d7a55dbfb4(vitest@4.1.12)':
+  '@mark1russell7/mock-fs@https://codeload.github.com/mark1russell7/mock-fs/tar.gz/95199d0f05b3d1cb59b3aa7a4e4022d7a55dbfb4(vitest@4.1.12)':
     dependencies:
       vitest: 4.1.12(@types/node@26.6.6)(@vitest/coverage-v8@4.1.12)(vite@8.3.6(@types/node@26.6.6)(esbuild@0.28.2))
 
@@ -956,14 +956,14 @@ snapshots:
     dependencies:
       '@mark1russell7/rigor-generators': 0.1.5
 
-  '@mark1russell7/site-pages@0.4.1':
+  '@mark1russell7/site-pages@0.4.4':
     dependencies:
       '@mark1russell7/rigor-statistics': 0.1.9
 
-  '@mark1russell7/test@git+https://github.com/mark1russell7/test.git#1a420a6ee70dcf40e612300ca497a22ed92d5843(vitest@4.1.12)':
+  '@mark1russell7/test@https://codeload.github.com/mark1russell7/test/tar.gz/1a420a6ee70dcf40e612300ca497a22ed92d5843(vitest@4.1.12)':
     dependencies:
-      '@mark1russell7/mock-client': git+https://github.com/mark1russell7/mock-client.git#b92151262a6eab81908f40e0c8443702fdf689b0(vitest@4.1.12)
-      '@mark1russell7/mock-fs': git+https://github.com/mark1russell7/mock-fs.git#95199d0f05b3d1cb59b3aa7a4e4022d7a55dbfb4(vitest@4.1.12)
+      '@mark1russell7/mock-client': https://codeload.github.com/mark1russell7/mock-client/tar.gz/b92151262a6eab81908f40e0c8443702fdf689b0(vitest@4.1.12)
+      '@mark1russell7/mock-fs': https://codeload.github.com/mark1russell7/mock-fs/tar.gz/95199d0f05b3d1cb59b3aa7a4e4022d7a55dbfb4(vitest@4.1.12)
       '@mark1russell7/mock-logger': https://codeload.github.com/mark1russell7/mock-logger/tar.gz/8566bfb6d563d4c1599d96a4f1ab40f3cbabfa8a(vitest@4.1.12)
     transitivePeerDependencies:
       - vitest
