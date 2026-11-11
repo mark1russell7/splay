@@ -737,7 +737,7 @@ Splay is the foundation for recursive data rendering in the mark1russell7 ecosys
 ```mermaid
 graph TD
     A[splay core] --> B[splay-react]
-    B --> C[MiniMongo UI]
+    B --> C[Application UI]
     A --> D[client-splay procedures]
     D --> C
 
@@ -750,7 +750,7 @@ graph TD
 - **splay** - Framework-agnostic core (this package)
 - **splay-react** - React adapter with `<Viewer>` component
 - **client-splay** - Remote procedures for server-side rendering
-- **MiniMongo** - Application using splay for recursive data visualization
+- **Application** - A private application that uses splay for recursive data visualization
 
 ## Examples
 
