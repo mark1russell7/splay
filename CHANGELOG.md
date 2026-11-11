@@ -1,5 +1,11 @@
 # Change history
 
+## 0.2.2
+
+### Changes
+
+- The README describes an application that uses the package in general words. The code does not change.
+
 ## 0.2.1
 
 ### Changes
