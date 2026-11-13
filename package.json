@@ -66,9 +66,9 @@
   "devDependencies": {
     "typescript": "^5.9.3",
     "@mark1russell7/cue": "^2.0.0",
-    "vitest": "^4.1.12",
+    "vitest": "^5.0.0",
     "@mark1russell7/test": "github:mark1russell7/test#main",
-    "@vitest/coverage-v8": "^4.1.12"
+    "@vitest/coverage-v8": "^5.0.0"
   },
   "scripts": {
     "build": "tsc -b",
