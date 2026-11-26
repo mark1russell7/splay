@@ -8,21 +8,27 @@ importers:
 
   .:
     devDependencies:
+      '@mark1russell7/api-report':
+        specifier: ^0.5.0
+        version: 0.5.22
+      '@mark1russell7/conventions':
+        specifier: ^0.53.2
+        version: 0.53.2
       '@mark1russell7/cue':
         specifier: ^2.0.0
         version: 2.1.4
       '@mark1russell7/test':
-        specifier: github:mark1russell7/test#main
+        specifier: github:mark1russell7/test#1a420a6ee70dcf40e612300ca497a22ed92d5843
         version: https://codeload.github.com/mark1russell7/test/tar.gz/1a420a6ee70dcf40e612300ca497a22ed92d5843(vitest@5.1.0)
       '@vitest/coverage-v8':
-        specifier: ^5.0.0
+        specifier: ^5.1.0
         version: 5.1.0(vitest@5.1.0)
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
       vitest:
         specifier: ^5.0.0
-        version: 5.1.0(@types/node@26.6.6)(@vitest/coverage-v8@5.1.0)(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2))
+        version: 5.1.0(@types/node@26.6.6)(@vitest/coverage-v8@5.1.0)(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2)(yaml@2.9.1))
 
   site:
     dependencies:
@@ -44,10 +50,10 @@ importers:
         version: 5.9.3
       vite:
         specifier: ^8.3.5
-        version: 8.3.7(@types/node@26.6.6)(esbuild@0.28.2)
+        version: 8.3.7(@types/node@26.6.6)(esbuild@0.28.2)(yaml@2.9.1)
       vitest:
         specifier: ^5.1.0
-        version: 5.1.0(@types/node@26.6.6)(@vitest/coverage-v8@5.1.0)(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2))
+        version: 5.1.0(@types/node@26.6.6)(@vitest/coverage-v8@5.1.0)(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2)(yaml@2.9.1))
 
 packages:
 
@@ -247,25 +253,40 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
+  '@mark1russell7/api-report@0.5.22':
+    resolution: {integrity: sha512-tqkh8twM0NH+sE4bmYQuzryFokw/7qpzWHbvVjT2cQEipB8E5RjKrIW2cldodY996XZd2CE2Vjd8OMJOz6lYfA==}
+    engines: {node: '>=22'}
+    hasBin: true
+
+  '@mark1russell7/conventions@0.53.2':
+    resolution: {integrity: sha512-OfFvxHZl4Eu6zRcgzSmnEoXF5eZGgv1rpw4qdGUmfpS1jR1wFgEpiZPGW2W3R/lHBZ/4VN24/rV7/6SIboTWmQ==}
+    engines: {node: '>=22'}
+    hasBin: true
+
+  '@mark1russell7/conventions@0.54.0':
+    resolution: {integrity: sha512-pqdCwKE5ejF5Bf0pYvpbykFpzW8zgBh3MCRmpiOzuXgIYCnoEPAHmPFB316BohXS9HMV6o5OJsjfXJPq+gR+Vw==}
+    engines: {node: '>=22'}
+    hasBin: true
+
   '@mark1russell7/cue@2.1.4':
     resolution: {integrity: sha512-+EEUBpLrTBcJoMIOF3C5XMVpzO7eYrermtdleEvWLGNJK9/HGPT9o6GgbsW+Vl+s3/0QrXksc0qOIUlE70HI9Q==}
     engines: {node: '>=22'}
     hasBin: true
 
   '@mark1russell7/mock-client@https://codeload.github.com/mark1russell7/mock-client/tar.gz/b92151262a6eab81908f40e0c8443702fdf689b0':
-    resolution: {gitHosted: true, tarball: https://codeload.github.com/mark1russell7/mock-client/tar.gz/b92151262a6eab81908f40e0c8443702fdf689b0}
+    resolution: {gitHosted: true, integrity: sha512-oWCzAjCv6LnPIf7bPZUHNzRIFE2l5pqUZ0LNRWIi1fBG1t4R44r8wL0HtBsWk1rNN6eef8SkedngC3rSYv7gdw==, tarball: https://codeload.github.com/mark1russell7/mock-client/tar.gz/b92151262a6eab81908f40e0c8443702fdf689b0}
     version: 0.0.0
     peerDependencies:
       vitest: ^3.0.0
 
   '@mark1russell7/mock-fs@https://codeload.github.com/mark1russell7/mock-fs/tar.gz/95199d0f05b3d1cb59b3aa7a4e4022d7a55dbfb4':
-    resolution: {gitHosted: true, tarball: https://codeload.github.com/mark1russell7/mock-fs/tar.gz/95199d0f05b3d1cb59b3aa7a4e4022d7a55dbfb4}
+    resolution: {gitHosted: true, integrity: sha512-TUR7APIo0uproDg7bQGrIMc+srptgspYpSkzLpjgjUXFHdZPEwjszzvl+Y6fxkJ3h9cbDlXPIoQBFVRz2GyD2A==, tarball: https://codeload.github.com/mark1russell7/mock-fs/tar.gz/95199d0f05b3d1cb59b3aa7a4e4022d7a55dbfb4}
     version: 0.0.0
     peerDependencies:
       vitest: ^3.0.0
 
   '@mark1russell7/mock-logger@https://codeload.github.com/mark1russell7/mock-logger/tar.gz/8566bfb6d563d4c1599d96a4f1ab40f3cbabfa8a':
-    resolution: {gitHosted: true, tarball: https://codeload.github.com/mark1russell7/mock-logger/tar.gz/8566bfb6d563d4c1599d96a4f1ab40f3cbabfa8a}
+    resolution: {gitHosted: true, integrity: sha512-Gf8clVNru0+jjmy69j19UwB+8odEY1oMT5BLi+5UouXuePoeyHrSucJVD58sHWgacq/b5QopSSabfoT82ganKw==, tarball: https://codeload.github.com/mark1russell7/mock-logger/tar.gz/8566bfb6d563d4c1599d96a4f1ab40f3cbabfa8a}
     version: 0.0.0
     peerDependencies:
       vitest: ^3.0.0
@@ -284,8 +305,16 @@ packages:
     hasBin: true
 
   '@mark1russell7/test@https://codeload.github.com/mark1russell7/test/tar.gz/1a420a6ee70dcf40e612300ca497a22ed92d5843':
-    resolution: {gitHosted: true, tarball: https://codeload.github.com/mark1russell7/test/tar.gz/1a420a6ee70dcf40e612300ca497a22ed92d5843}
+    resolution: {gitHosted: true, integrity: sha512-bCWH3dMIuqz4Jt9SPCmXrhztCONwmqnbMwppQ8E+SEPE6VMdQLnZKOVhrt3byJEjjBjPkJCLc5uIZ0d21rR8qg==, tarball: https://codeload.github.com/mark1russell7/test/tar.gz/1a420a6ee70dcf40e612300ca497a22ed92d5843}
     version: 0.0.0
+
+  '@mark1russell7/text@0.0.19':
+    resolution: {integrity: sha512-pPJV318wzfEcsnnzlqVu+OBp/o9VLKWsAo1Wkf4rNaerOjgINDo+vErhmtPVQw6BzcVmGn4brXmMLcosCT9sAw==}
+    engines: {node: '>=22.12'}
+
+  '@mark1russell7/text@0.0.20':
+    resolution: {integrity: sha512-HrjBak4BE0fDC+bLzFi/c4NDCHqiUm7VhYR5YhJmkApRSB8mUOao4bFiO9Jy3xwpsCGJCj4echVDCUxXjV+3NA==}
+    engines: {node: '>=22.12'}
 
   '@napi-rs/wasm-runtime@1.2.6':
     resolution: {integrity: sha512-mRyDmEw9/fCDXCGfL1sbgIw/GUK0PVxRW4YwgPN61F3LQ+fSyoBFarJVzgGyhF6kRzEQZ0FejDqm4WLXSeqQmw==}
@@ -722,6 +751,11 @@ packages:
     engines: {node: '>=20.11'}
     hasBin: true
 
+  yaml@2.9.1:
+    resolution: {integrity: sha512-3NxN8+78OdzbT7C/WjGsyfPAtJaN3FNDsWxv7Y7mcDsT/oOmgW8BpyQQFFBnvZE3j9Y2Sdz1ULFLezL7Eb2yFw==}
+    engines: {node: '>= 14.6'}
+    hasBin: true
+
 snapshots:
 
   '@babel/helper-string-parser@7.29.13': {}
@@ -842,19 +876,33 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.6.0
 
+  '@mark1russell7/api-report@0.5.22':
+    dependencies:
+      '@mark1russell7/conventions': 0.54.0
+
+  '@mark1russell7/conventions@0.53.2':
+    dependencies:
+      '@mark1russell7/text': 0.0.19
+      yaml: 2.9.1
+
+  '@mark1russell7/conventions@0.54.0':
+    dependencies:
+      '@mark1russell7/text': 0.0.20
+      yaml: 2.9.1
+
   '@mark1russell7/cue@2.1.4': {}
 
   '@mark1russell7/mock-client@https://codeload.github.com/mark1russell7/mock-client/tar.gz/b92151262a6eab81908f40e0c8443702fdf689b0(vitest@5.1.0)':
     dependencies:
-      vitest: 5.1.0(@types/node@26.6.6)(@vitest/coverage-v8@5.1.0)(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2))
+      vitest: 5.1.0(@types/node@26.6.6)(@vitest/coverage-v8@5.1.0)(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2)(yaml@2.9.1))
 
   '@mark1russell7/mock-fs@https://codeload.github.com/mark1russell7/mock-fs/tar.gz/95199d0f05b3d1cb59b3aa7a4e4022d7a55dbfb4(vitest@5.1.0)':
     dependencies:
-      vitest: 5.1.0(@types/node@26.6.6)(@vitest/coverage-v8@5.1.0)(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2))
+      vitest: 5.1.0(@types/node@26.6.6)(@vitest/coverage-v8@5.1.0)(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2)(yaml@2.9.1))
 
   '@mark1russell7/mock-logger@https://codeload.github.com/mark1russell7/mock-logger/tar.gz/8566bfb6d563d4c1599d96a4f1ab40f3cbabfa8a(vitest@5.1.0)':
     dependencies:
-      vitest: 5.1.0(@types/node@26.6.6)(@vitest/coverage-v8@5.1.0)(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2))
+      vitest: 5.1.0(@types/node@26.6.6)(@vitest/coverage-v8@5.1.0)(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2)(yaml@2.9.1))
 
   '@mark1russell7/rigor-generators@0.1.16': {}
 
@@ -873,6 +921,10 @@ snapshots:
       '@mark1russell7/mock-logger': https://codeload.github.com/mark1russell7/mock-logger/tar.gz/8566bfb6d563d4c1599d96a4f1ab40f3cbabfa8a(vitest@5.1.0)
     transitivePeerDependencies:
       - vitest
+
+  '@mark1russell7/text@0.0.19': {}
+
+  '@mark1russell7/text@0.0.20': {}
 
   '@napi-rs/wasm-runtime@1.2.6(@emnapi/core@2.0.0-beta.2)(@emnapi/runtime@2.0.0-beta.2)':
     dependencies:
@@ -965,7 +1017,7 @@ snapshots:
       obug: 3.0.0
       std-env: 4.3.0
       tinyrainbow: 3.2.0
-      vitest: 5.1.0(@types/node@26.6.6)(@vitest/coverage-v8@5.1.0)(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2))
+      vitest: 5.1.0(@types/node@26.6.6)(@vitest/coverage-v8@5.1.0)(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2)(yaml@2.9.1))
 
   '@vitest/istanbul-lib-coverage@2.1.0': {}
 
@@ -973,14 +1025,14 @@ snapshots:
     dependencies:
       '@vitest/istanbul-lib-coverage': 2.1.0
 
-  '@vitest/mocker@5.1.0(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2))':
+  '@vitest/mocker@5.1.0(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2)(yaml@2.9.1))':
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       '@vitest/spy': 5.1.0
       estree-walker: 3.0.3
       magic-string: 1.4.5
     optionalDependencies:
-      vite: 8.3.7(@types/node@26.6.6)(esbuild@0.28.2)
+      vite: 8.3.7(@types/node@26.6.6)(esbuild@0.28.2)(yaml@2.9.1)
 
   '@vitest/spy@5.1.0': {}
 
@@ -1160,7 +1212,7 @@ snapshots:
 
   undici-types@8.9.0: {}
 
-  vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2):
+  vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2)(yaml@2.9.1):
     dependencies:
       lightningcss: 1.33.0
       picomatch: 4.0.7
@@ -1171,11 +1223,12 @@ snapshots:
       '@types/node': 26.6.6
       esbuild: 0.28.2
       fsevents: 2.3.3
+      yaml: 2.9.1
 
-  vitest@5.1.0(@types/node@26.6.6)(@vitest/coverage-v8@5.1.0)(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2)):
+  vitest@5.1.0(@types/node@26.6.6)(@vitest/coverage-v8@5.1.0)(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2)(yaml@2.9.1)):
     dependencies:
       '@types/chai': 5.2.3
-      '@vitest/mocker': 5.1.0(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2))
+      '@vitest/mocker': 5.1.0(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2)(yaml@2.9.1))
       chai: 6.3.0
       es-module-lexer: 2.3.2
       expect-type: 1.4.0
@@ -1186,7 +1239,7 @@ snapshots:
       tinybench: 6.2.3
       tinyexec: 1.3.1
       tinyglobby: 0.2.17
-      vite: 8.3.7(@types/node@26.6.6)(esbuild@0.28.2)
+      vite: 8.3.7(@types/node@26.6.6)(esbuild@0.28.2)(yaml@2.9.1)
       why-is-node-running: 3.2.1
     optionalDependencies:
       '@types/node': 26.6.6
@@ -1195,3 +1248,5 @@ snapshots:
       - msw
 
   why-is-node-running@3.2.1: {}
+
+  yaml@2.9.1: {}
