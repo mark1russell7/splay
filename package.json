@@ -75,7 +75,7 @@
   },
   "scripts": {
     "build": "tsc -b",
-    "typecheck": "tsc --noEmit && pnpm --filter @splay/site run typecheck",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.test.json && pnpm --filter @splay/site run typecheck",
     "clean": "rm -rf dist .tsbuildinfo",
     "test": "vitest run && pnpm --filter @splay/site run test",
     "test:watch": "vitest",

@@ -29,10 +29,10 @@ describe("gridLayout", () => {
     const container = { width: 200, height: 300 };
     const items = gridLayout(container, 3, 1, 40);
 
-    expect(items[0].pos).toEqual({ x: 0, y: 0 });
-    expect(items[1].pos).toEqual({ x: 0, y: 40 });
-    expect(items[2].pos).toEqual({ x: 0, y: 80 });
-    expect(items[0].size.width).toBe(200);
+    expect(items[0]!.pos).toEqual({ x: 0, y: 0 });
+    expect(items[1]!.pos).toEqual({ x: 0, y: 40 });
+    expect(items[2]!.pos).toEqual({ x: 0, y: 80 });
+    expect(items[0]!.size.width).toBe(200);
   });
 });
 
@@ -58,8 +58,8 @@ describe("listLayout", () => {
     const container = { width: 500, height: 300 };
     const items = listLayout(container, 2, 30);
 
-    expect(items[0].size.width).toBe(500);
-    expect(items[1].size.width).toBe(500);
+    expect(items[0]!.size.width).toBe(500);
+    expect(items[1]!.size.width).toBe(500);
   });
 });
 
