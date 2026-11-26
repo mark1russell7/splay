@@ -10,5 +10,6 @@
   "site-name": "splay",
   "site-check": true,
   "site-check-pages": "/,/releases/,/status/",
-  "site-check-probe": "site/src/check-probe.ts"
+  "site-check-probe": "site/src/check-probe.ts",
+  "roadmap": "docs/ROADMAP.md"
 }

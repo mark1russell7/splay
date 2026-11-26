@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/package",
   "name": "@mark1russell7/splay",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Type-driven recursive renderer for any data: register a viewer per type and dispatch renders nested values with React, Vue, Solid, Svelte or plain strings. Framework-agnostic core, zero dependencies.",
   "license": "MIT",
   "author": "Mark Russell (https://github.com/mark1russell7)",
@@ -11,7 +11,8 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
     },
     "./package.json": "./package.json"
   },
@@ -64,11 +65,13 @@
     "node": ">=22"
   },
   "devDependencies": {
+    "@mark1russell7/api-report": "^0.5.0",
     "typescript": "^5.9.3",
     "@mark1russell7/cue": "^2.0.0",
     "vitest": "^5.0.0",
-    "@mark1russell7/test": "github:mark1russell7/test#main",
-    "@vitest/coverage-v8": "^5.0.0"
+    "@mark1russell7/test": "github:mark1russell7/test#1a420a6ee70dcf40e612300ca497a22ed92d5843",
+    "@vitest/coverage-v8": "^5.1.0",
+    "@mark1russell7/conventions": "^0.53.2"
   },
   "scripts": {
     "build": "tsc -b",
@@ -76,6 +79,33 @@
     "clean": "rm -rf dist .tsbuildinfo",
     "test": "vitest run && pnpm --filter @splay/site run test",
     "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "check:api": "api-report check",
+    "check:conventions": "conventions check"
+  },
+  "conventions": {
+    "rules": {
+      "no-console": {
+        "baseline": 0,
+        "failFrom": "2027-01-20",
+        "reason": "The source and the tests have no console call. A new call fails at once, and each call fails from 2027-01-20."
+      },
+      "no-build-output": {
+        "off": "A dependent installs this package from git at a commit, so git keeps the built files in dist/. It ends with roadmap item C2: the dependent moves to the npm release, and dist/ leaves git."
+      },
+      "typed-scripts": {
+        "ignore": [
+          "dist/dispatch.js",
+          "dist/index.js",
+          "dist/infer.js",
+          "dist/layout.js",
+          "dist/path.js",
+          "dist/registry.js",
+          "dist/resolve.js",
+          "dist/types.js"
+        ],
+        "reason": "The files are the build output of src/. A dependent installs this package from git at a commit, so git keeps the built files in dist/. It ends with roadmap item C2: the dependent moves to the npm release, and dist/ leaves git."
+      }
+    }
   }
 }
