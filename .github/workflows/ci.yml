@@ -10,19 +10,22 @@ on:
     branches: [main]
   # release.yml starts these gates before a release
   workflow_call:
+  # A person starts a run on a branch with no pull request: gh workflow run ci.yml --ref <branch>
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: ci-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  group: ci-${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || github.sha }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   ci:
     uses: mark1russell7/template/.github/workflows/reusable-ci.yml@8ad943ea22c2a65479b648664765028cf981da78 # main
     with:
-      scripts: build test typecheck
+      # check:conventions: the rules of @mark1russell7/conventions, with the settings in package.json
+      scripts: build test typecheck check:conventions
       node-versions: '["22", "24"]'
       os: '["ubuntu-latest", "windows-latest", "macos-latest"]'
       # The files of the tarball

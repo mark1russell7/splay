@@ -1,5 +1,11 @@
 # Change history
 
+## 0.2.3
+
+### Changes
+
+- The export `.` has a `default` condition next to `import`, so a tool that does not know the condition `import` finds the same file. The code does not change.
+
 ## 0.2.2
 
 ### Changes

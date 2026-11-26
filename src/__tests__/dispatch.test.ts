@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { dispatch, createRegistry, inferType, TYPE_SYMBOL } from "../index.js";
+import { dispatch, createRegistry, TYPE_SYMBOL } from "../index.js";
 import type { RenderContext } from "../index.js";
 
 describe("dispatch", () => {
