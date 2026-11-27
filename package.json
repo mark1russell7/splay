@@ -66,7 +66,7 @@
   },
   "devDependencies": {
     "@mark1russell7/api-report": "^0.5.0",
-    "typescript": "^5.9.3",
+    "typescript": "^7.0.0",
     "@mark1russell7/cue": "^2.0.0",
     "vitest": "^5.0.0",
     "@mark1russell7/test": "github:mark1russell7/test#1a420a6ee70dcf40e612300ca497a22ed92d5843",
