@@ -1,0 +1,141 @@
+# The public API of @mark1russell7/splay
+#
+# The names of each entry of the exports field, and the declaration of each name, without comments
+# and private members. The command `api-report check` compares this file with the built .d.ts files.
+# To accept a change of the API, start the build, then `api-report update`, and review the diff.
+
+## . (dist/index.d.ts): names
+
+type ComponentFactory: dist/types.d.ts#ComponentFactory
+type ComponentOutput: dist/types.d.ts#ComponentOutput
+DataType: dist/types.d.ts#DataType
+type DispatchConfig: dist/dispatch.d.ts#DispatchConfig
+type DynamicValue: dist/resolve.d.ts#DynamicValue
+type LayoutItem: dist/layout.d.ts#LayoutItem
+Position: dist/types.d.ts#Position
+type Registry: dist/registry.d.ts#Registry
+RenderContext: dist/types.d.ts#RenderContext
+type ResolveContext: dist/resolve.d.ts#ResolveContext
+Size: dist/types.d.ts#Size
+TYPE_SYMBOL: dist/types.d.ts#TYPE_SYMBOL
+ViewerFactory: dist/types.d.ts#ViewerFactory
+arrayPath: dist/path.d.ts#arrayPath
+createRegistry: dist/registry.d.ts#createRegistry
+dispatch: dist/dispatch.d.ts#dispatch
+gridLayout: dist/layout.d.ts#gridLayout
+inferType: dist/infer.d.ts#inferType
+isDynamic: dist/resolve.d.ts#isDynamic
+listLayout: dist/layout.d.ts#listLayout
+objectPath: dist/path.d.ts#objectPath
+pathDepth: dist/path.d.ts#pathDepth
+resolve: dist/resolve.d.ts#resolve
+splitLayout: dist/layout.d.ts#splitLayout
+
+## Declarations
+
+### dist/dispatch.d.ts#DispatchConfig
+export interface DispatchConfig<Output> {
+    registry: Registry<Output>;
+    fallback?: (type: DataType, data: unknown) => Output;
+}
+
+### dist/dispatch.d.ts#dispatch
+export declare function dispatch<Output>(data: unknown, size: Size, path: string, config: DispatchConfig<Output>): Output | undefined;
+
+### dist/infer.d.ts#inferType
+export declare function inferType(value: unknown): DataType;
+
+### dist/layout.d.ts#LayoutItem
+export interface LayoutItem {
+    pos: Position;
+    size: Size;
+    index: number;
+}
+
+### dist/layout.d.ts#gridLayout
+export declare function gridLayout(container: Size, count: number, cols: number, rowHeight: number): LayoutItem[];
+
+### dist/layout.d.ts#listLayout
+export declare function listLayout(container: Size, count: number, itemHeight: number): LayoutItem[];
+
+### dist/layout.d.ts#splitLayout
+export declare function splitLayout(container: Size, ratio?: number): {
+    left: Size;
+    right: Size;
+};
+
+### dist/path.d.ts#arrayPath
+export declare function arrayPath(parent: string, index: number): string;
+
+### dist/path.d.ts#objectPath
+export declare function objectPath(parent: string, key: string): string;
+
+### dist/path.d.ts#pathDepth
+export declare function pathDepth(path: string): number;
+
+### dist/registry.d.ts#Registry
+export interface Registry<Output> {
+    register: (type: DataType, factory: ViewerFactory<Output>) => void;
+    get: (type: DataType) => ViewerFactory<Output> | undefined;
+    has: (type: DataType) => boolean;
+}
+
+### dist/registry.d.ts#createRegistry
+export declare function createRegistry<Output>(): Registry<Output>;
+
+### dist/resolve.d.ts#DynamicValue
+export type DynamicValue<T = unknown> = T | ((ctx: ResolveContext) => T | Promise<T>);
+
+### dist/resolve.d.ts#ResolveContext
+export interface ResolveContext {
+    [key: string]: unknown;
+}
+
+### dist/resolve.d.ts#isDynamic
+export declare function isDynamic(value: unknown): value is (ctx: ResolveContext) => unknown;
+
+### dist/resolve.d.ts#resolve
+export declare function resolve<T>(value: DynamicValue<T>, context?: ResolveContext): Promise<T>;
+
+### dist/types.d.ts#ComponentFactory
+export type ComponentFactory<T = unknown> = (ctx: RenderContext<T>) => ComponentOutput;
+
+### dist/types.d.ts#ComponentOutput
+export interface ComponentOutput {
+    type: string;
+    props: Record<string, unknown>;
+    children?: ComponentOutput[];
+    key?: string | number;
+}
+
+### dist/types.d.ts#DataType
+export type DataType = "null" | "undefined" | "string" | "number" | "boolean" | "date" | "array" | "object" | "function" | string;
+
+### dist/types.d.ts#Position
+export interface Position {
+    x: number;
+    y: number;
+}
+
+### dist/types.d.ts#RenderContext
+export interface RenderContext<T = unknown> {
+    data: T;
+    size: Size;
+    path: string;
+    depth: number;
+    render: (data: unknown, size: Size, path: string) => unknown;
+}
+
+### dist/types.d.ts#Size
+export interface Size {
+    width: number;
+    height: number;
+}
+
+### dist/types.d.ts#TYPE_SYMBOL
+export declare const TYPE_SYMBOL: unique symbol;
+
+### dist/types.d.ts#ViewerFactory
+export interface ViewerFactory<Output = unknown> {
+    (ctx: RenderContext): Output;
+}
