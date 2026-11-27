@@ -71,7 +71,7 @@
     "vitest": "^5.0.0",
     "@mark1russell7/test": "github:mark1russell7/test#1a420a6ee70dcf40e612300ca497a22ed92d5843",
     "@vitest/coverage-v8": "^5.1.0",
-    "@mark1russell7/conventions": "^0.54.0"
+    "@mark1russell7/conventions": "^0.55.2"
   },
   "scripts": {
     "build": "tsc -b",
